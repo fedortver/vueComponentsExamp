@@ -1,17 +1,17 @@
 <template>
-  <div>
-	  <p>Home</p>
-  </div>
+	<div>
+		<p>Home</p>
+		<AppButton :to="{ name: 'signin' }" />
+		<AppButton :to="{ name: 'signin' }" theme="primary" size="large" />
+	</div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import AppButton from "@/components/AppButton.vue";
 export default {
-  name: 'home',
-  components: {
-
-  }
-}
+	name: "home",
+	components: {
+		AppButton
+	}
+};
 </script>
