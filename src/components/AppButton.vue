@@ -20,11 +20,12 @@ export default {
 			type: String,
 			default: "primary"
 		},
-		theme: {
+		title: {
 			required: false,
 			type: String,
 			default: ""
 		},
+
 		disabled: {
 			required: false,
 			type: Boolean,
