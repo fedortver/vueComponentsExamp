@@ -1,12 +1,14 @@
 <template>
 	<router-link
-		class="btn btn-primary"
+		class="btn"
 		:to="to"
-		:class="[themes[theme], sizes[size]]"
+		:title="title"
+		:disabled="disabled"
+		:class="[themes[theme], sizes[size], { disabled: disabled }]"
 		@click.native="$emit('click', $event)"
 	>
-		Sign In</router-link
-	>
+		<slot />
+	</router-link>
 </template>
 
 <script>
@@ -18,6 +20,17 @@ export default {
 			type: String,
 			default: "primary"
 		},
+		theme: {
+			required: false,
+			type: String,
+			default: ""
+		},
+		disabled: {
+			required: false,
+			type: Boolean,
+			default: false
+		},
+
 		size: {
 			required: false,
 			type: String,
@@ -44,6 +57,14 @@ export default {
 				"btn-lg": "large"
 			}
 		};
+	},
+	methods: {
+		ckicked(e) {
+			if (this.disabled) {
+				return;
+			}
+			this.$emit("click", e);
+		}
 	}
 };
 </script>

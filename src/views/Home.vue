@@ -1,8 +1,7 @@
 <template>
 	<div>
 		<p>Home</p>
-		<AppButton :to="{ name: 'signin' }" />
-		<AppButton :to="{ name: 'signin' }" theme="primary" size="large" />
+		<AppButton @click.prevent="clicked">Create account</AppButton>
 	</div>
 </template>
 
