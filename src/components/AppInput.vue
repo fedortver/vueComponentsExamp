@@ -1,6 +1,14 @@
 <template>
 	<div>
-		<input :type="inputType" :name="name" id="email" class="form-control" />
+		<input
+			:type="inputType"
+			:name="name"
+			id="email"
+			class="form-control"
+			@input="$emit('input', $event.target.value)"
+			:value="value"
+			v-bind="$attrs"
+		/>
 		<a
 			href="#"
 			v-if="type === 'password'"
@@ -21,6 +29,11 @@ export default {
 			required: false,
 			type: String,
 			default: "text"
+		},
+		value: {
+			required: false,
+			type: String,
+			default: ""
 		}
 	},
 	data() {
